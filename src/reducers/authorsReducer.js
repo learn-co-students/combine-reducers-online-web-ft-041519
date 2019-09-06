@@ -1,5 +1,4 @@
-import {combineReducers} from 'redux'
-import uuid from 'uuid'
+import uuid from "uuid";
 
 function authorsReducer(state = [], action) {
   let idx;
@@ -25,23 +24,3 @@ function authorsReducer(state = [], action) {
       return state;
   }
 }
-
-function booksReducer(state = [], action) {
-  let idx;
-  switch (action.type) {
-    case "ADD_BOOK":
-      return [...state, action.book];
-
-    case "REMOVE_BOOK":
-      idx = state.indexOf(action.id);
-      return [...state.slice(0, idx), ...state.slice(idx + 1)];
-
-    default:
-      return state;
-  }
-}
-
-export default const rootReducer = combineReducers({
-  authors: authorsReducer,
-  books: booksReducer
-})
