@@ -5,6 +5,7 @@ export default function bookApp(
   },
   action
 ) {
+
   let idx;
   switch (action.type) {
     case "ADD_BOOK":
